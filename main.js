@@ -7,9 +7,9 @@ Vue.component('product', {
     },
     template: `
     <div class="product-container">
-    <div class="product-image">
-      <img v-bind:src="image" v-bind:alt="description">
-     </div>
+        <div class="product-image">
+         <img v-bind:src="image" v-bind:alt="description">
+        </div>
       <div class="product-info">
         <h3> {{title}}</h3>
         <p v-if="inventory">in stock  {{inventory}} </p>
@@ -34,8 +34,10 @@ Vue.component('product', {
         </div>
         <button class="button" v-on:click="addToCart" :disabled=!inventory :class="{disabledButton : !inventory}">Add to Cart</button> 
         <button class="button" v-on:click="removeFromCart" :disabled="inventory <= 0" :class="{disabledButton : inventory <= 0}">Remove </button>
+        </div>
         <div class="review-container">
-        <h3>Reviews</h3>
+        
+        <h4>Reviews</h4>
         <p v-if="!reviews.length">There are no reviews yet</p>
         <ul>
         <li v-for="review in reviews">
@@ -45,7 +47,7 @@ Vue.component('product', {
         </li>
         </ul>
           <product-review @review-submitted="addReview"></product-review>
-        </div>
+          </div>
       </div>
 
    
@@ -138,7 +140,8 @@ Vue.component('product2', {
             required: true
         }
     },
-    template: `<div class="product-container">
+    template: `
+    <div class="product-container">
     <div class="product-image">
       <img v-bind:src="image" v-bind:alt="description">
      </div>
@@ -164,10 +167,14 @@ Vue.component('product2', {
         @mouseover="updateProduct(index)"
         >
         </div>
-        <button class="button" v-on:click="addToCart" :disabled=!inventory :class="{disabledButton : !inventory}">Add to Cart</button> 
+         <button class="button" v-on:click="addToCart" :disabled=!inventory :class="{disabledButton : !inventory}">Add to Cart</button> 
         <button class="button" v-on:click="removeFromCart" :disabled="inventory <= 0" :class="{disabledButton : inventory <= 0}">Remove </button>
+        </div> 
+        
+       
+        
         <div class="review-container">
-        <h3>Reviews</h3>
+        <h4>Reviews</h4>
         <p v-if="!reviews.length">There are no reviews yet</p>
         <ul>
         <li v-for="review in reviews">
@@ -177,7 +184,7 @@ Vue.component('product2', {
         </li>
         </ul>
           <product-review @review-submitted="addReview"></product-review>
-        </div>
+       
       </div> 
   </div>
 `,
